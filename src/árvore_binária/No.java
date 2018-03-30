@@ -9,6 +9,44 @@ package árvore_binária;
  *
  * @author Alex Alves
  */
-public class No {
+public class No< T extends Comparable<T>> implements Comparable<T>{
+    T valor;
     
+    No<T> pai,esquerdo,direito;
+
+    @Override
+    public int compareTo(T o) {
+       return valor.compareTo(o);
+    }
+    public No(T valor){
+        this.valor =valor;
+        pai=null;
+        esquerdo=null;
+        direito=null;
+    }
+    public No(T valor, No<T> p){
+        this.valor =valor;
+        pai=p;
+        esquerdo=null;
+        direito=null;
+    }
+    public void setPai(No<T> pai){
+        this.pai=pai;
+    }
+    public void setDireito(No<T> direito){
+        this.direito=direito;
+    }
+    public void setEsquerdo(No<T> esquerdo){
+        this.esquerdo=esquerdo;
+    }
+    
+    public No<T> getPai(){
+        return pai;
+    }
+     public No<T> getDireito(){
+        return direito;
+    }
+      public No<T> getEsquerdo(){
+        return esquerdo;
+    }
 }
