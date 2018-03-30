@@ -56,4 +56,24 @@ public class Arvore< T extends Comparable<T>>{
         }
         return no;
     }
+    public No<T> Buscar(T valor){
+        if(raiz ==null){
+            return null;
+        }else{
+            return Buscar(valor,raiz);
+        }
+    }
+    private No<T> Buscar(T valor,No<T> subarvore){
+        
+        int compara = subarvore.compareTo(valor);
+        if(compara ==0){
+            return subarvore;
+        }else if(compara >0){
+            return Buscar(valor,subarvore.getEsquerdo());
+        }else if(compara <0){
+            return Buscar(valor,subarvore.getDireito());
+        }
+        return subarvore;
+    }
+    
 }
