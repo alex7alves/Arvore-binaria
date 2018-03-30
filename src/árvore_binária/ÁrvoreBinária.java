@@ -5,6 +5,8 @@
  */
 package árvore_binária;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Alex Alves
@@ -15,7 +17,15 @@ public class ÁrvoreBinária {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        // Cria arvore 
+        Arvore<Integer> arvore = new Arvore<>(1);
+        arvore.Inserir(2);
+        arvore.Inserir(3);
+        arvore.Inserir(4);
+        arvore.Inserir(5);
+        arvore.Inserir(7);
+        
+        System.out.println(arvore.toString());
     }
     
 }

@@ -17,6 +17,9 @@ public class Arvore< T extends Comparable<T>>{
     public Arvore(){
         raiz =null;
     }
+    public Arvore(T valor){
+        raiz = new No<T>(valor);
+    }
     public void setRaiz(No<T> raiz){
         this.raiz = raiz;
     }
@@ -109,6 +112,19 @@ public class Arvore< T extends Comparable<T>>{
         if(lista.size()>1){ // caso tenha mais de um elemento
             meio = lista.size()/2 -1; // -1 pois começa do 0
         }
+        Inserir(lista.get(meio));
+        if(meio >0){
+            Balancear((ArrayList<T>) lista.subList(0, meio));
+            Balancear((ArrayList<T>) lista.subList(meio+1,lista.size()));
+        }
         
+    }
+    public String toString(){
+        ArrayList<T> lista = getLista(raiz);
+        String saida ="";
+        for(T l : lista){
+            saida = saida +l +"-";
+        }
+        return saida.substring(0,saida.length()-1); // para tirar o ultimo "-"
     }
 }
