@@ -39,7 +39,9 @@ public class No< T extends Comparable<T>> implements Comparable<T>{
     public void setEsquerdo(No<T> esquerdo){
         this.esquerdo=esquerdo;
     }
-    
+    public void setvalor(T valor){
+        this.valor =valor;
+    }
     public No<T> getPai(){
         return pai;
     }
@@ -49,4 +51,7 @@ public class No< T extends Comparable<T>> implements Comparable<T>{
       public No<T> getEsquerdo(){
         return esquerdo;
     }
+    public T getvalor(){
+        return valor;
+    }  
 }
