@@ -5,6 +5,8 @@
  */
 package árvore_binária;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Alex Alves
@@ -75,5 +77,38 @@ public class Arvore< T extends Comparable<T>>{
         }
         return subarvore;
     }
+    public void Balancear(){
+        if(raiz ==null){
+            return;
+        }
+        ArrayList<T> lista = getLista(raiz);
+        raiz =null; // desmontar a arvore
+        Balancear(lista);
+    }
+
+    private ArrayList<T> getLista(No<T> no) {
+        if(no ==null){
+            return new ArrayList<T>(); // lista vazia
+        }else {
+            // gera sublista com parte da esquerda. Acrescenta o elemento do meio
+            // e gera uma sublista da diteita
+            ArrayList<T> lista = getLista(no.getEsquerdo());
+            lista.add(no.getvalor());
+            lista.addAll(getLista(no.getDireito()));
+            
+            return lista;
+        }
+    }
+
+    private void Balancear(ArrayList<T> lista) {
     
+        if(lista.size()==0){
+            return;
+        }
+        int meio =0;
+        if(lista.size()>1){ // caso tenha mais de um elemento
+            meio = lista.size()/2 -1; // -1 pois começa do 0
+        }
+        
+    }
 }
